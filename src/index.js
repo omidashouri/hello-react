@@ -173,3 +173,11 @@ ReactDOM.render(
     <MyTagFunc1_2/>,
     document.getElementById('root')
 );
+
+const [first,second,third]=[
+    "firstItem", "secondItem", "thirdItem"
+];
+
+console.log(first);
+console.log(second);
+console.log(third);
