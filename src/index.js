@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -141,6 +141,7 @@ ReactDOM.render(
 //----------------------------------------------
 
 
+/*
 function MyTagFunc1() {
     return (
         <div>
@@ -181,3 +182,27 @@ const [first,second,third]=[
 console.log(first);
 console.log(second);
 console.log(third);
+*/
+
+
+
+
+//----------------------------------------------
+
+
+function MyApp() {
+    const [myStatus, setMyStatus] = useState("open");
+    return (
+        <div>
+            <h1>Status: {myStatus}</h1>
+            <button onClick={()=>setMyStatus("close")}>Close</button>
+            <button onClick={()=>setMyStatus("break")}>Break</button>
+            <button onClick={()=>setMyStatus("open")}>Open</button>
+        </div>
+    );
+}
+
+ReactDOM.render(
+    <MyApp/>,
+    document.getElementById('root')
+);
