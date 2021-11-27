@@ -103,10 +103,10 @@ ReactDOM.render(
 );*/
 
 
-
 //----------------------------------------------
 
 
+/*
 function MyTagFunc1(myInTag) {
     return (
         <div>
@@ -134,5 +134,42 @@ function MyT(myIn) {
 ReactDOM.render(
     //or: myTArg="fun2"
     <MyT myTArg="fun2"/>,
+    document.getElementById('root')
+);*/
+
+
+//----------------------------------------------
+
+
+function MyTagFunc1() {
+    return (
+        <div>
+            <h1>inside tag function 1</h1>
+        </div>
+    );
+}
+
+function MyTagFunc2() {
+    return (
+        <div>
+            <h1>inside tag function 2</h1>
+        </div>
+    );
+}
+
+
+function MyTagFunc1_2() {
+    return (
+        //or <div>
+        <React.Fragment>
+            <MyTagFunc1/>
+            <MyTagFunc2/>
+        </React.Fragment>
+        //or</div>
+    );
+}
+
+ReactDOM.render(
+    <MyTagFunc1_2/>,
     document.getElementById('root')
 );
