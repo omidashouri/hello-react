@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import {Document, Page, PDFViewer, StyleSheet, Text, View} from '@react-pdf/renderer';
 import './index.css';
 
 let city = {
@@ -219,7 +220,6 @@ ReactDOM.render(
 );*/
 
 
-
 //----------------------------------------------
 
 
@@ -248,7 +248,7 @@ ReactDOM.render(
 //----------------------------------------------
 
 
-function MyApp() {
+/*function MyApp() {
     const[val1,setVal1] = useState("");
     const[val2,setVal2] = useState("");
 
@@ -274,4 +274,50 @@ function MyApp() {
 ReactDOM.render(
     <MyApp/>,
     document.getElementById('root')
+);*/
+
+
+//----------------------------------------------
+
+
+
+/*import { PDFViewer } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';*/
+
+// Create styles
+const styles = StyleSheet.create({
+    page: {
+        flexDirection: 'row',
+        backgroundColor: '#E4E4E4'
+    },
+    section: {
+        margin: 10,
+        padding: 10,
+        flexGrow: 1
+    }
+});
+
+// Create Document Component
+const MyDocument = () => (
+    <Document>
+        <Page size="A4" style={styles.page}>
+            <View style={styles.section}>
+                <Text>Section #1</Text>
+            </View>
+            <View style={styles.section}>
+                <Text>Section #2</Text>
+            </View>
+        </Page>
+    </Document>
 );
+
+const App = () => (
+    <PDFViewer>
+        <MyDocument />
+    </PDFViewer>
+);
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+
+
