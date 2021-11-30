@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -185,19 +185,88 @@ console.log(third);
 */
 
 
+//----------------------------------------------
+
+
+/*function MyApp() {
+    //useState is built in function for setting initial state
+    const [myStatus, setMyStatus] = useState("open");
+    const [manager, setManager] = useState("omid");
+    const [year, setYear] = useState(2020);
+    return (
+        <div>
+            <div>
+                <h1>year is:{year}</h1>
+                <button onClick={()=>setYear(year+1)}>add year</button>
+            </div>
+            <div>
+                <h1>manager on duty: {manager}</h1>
+                <button onClick={() => setManager("omid ashouri")}>new manager</button>
+            </div>
+            <div>
+                <h1>Status: {myStatus}</h1>
+                <button onClick={() => setMyStatus("close")}>Close</button>
+                <button onClick={() => setMyStatus("back in 5 min")}>Break</button>
+                <button onClick={() => setMyStatus("open")}>Open</button>
+            </div>
+        </div>
+    );
+}
+
+ReactDOM.render(
+    <MyApp/>,
+    document.getElementById('root')
+);*/
+
+
+
+//----------------------------------------------
+
+
+/*function MyCheckBox() {
+    const[checked,setChecked] = useState(false);
+    useEffect(()=>{
+        alert(`checkbox:${checked.toString()}`);
+    });
+
+    return(
+        <div>
+            <input type="checkbox" value={checked}
+            onChange={()=>setChecked(checked=>!checked)}
+            ></input>
+            {checked ? "checked" : "not checked"}
+        </div>
+    );
+}
+
+ReactDOM.render(
+    <MyCheckBox/>,
+    document.getElementById('root')
+);*/
 
 
 //----------------------------------------------
 
 
 function MyApp() {
-    const [myStatus, setMyStatus] = useState("open");
-    return (
+    const[val1,setVal1] = useState("");
+    const[val2,setVal2] = useState("");
+
+    useEffect(()=>{
+        console.log(`value 1 is :${val1}`);
+    },[val1]);
+
+    useEffect(()=>{
+        console.log(`value 2 is :${val2}`);
+    },[val1,val2]);
+
+    return(
         <div>
-            <h1>Status: {myStatus}</h1>
-            <button onClick={()=>setMyStatus("close")}>Close</button>
-            <button onClick={()=>setMyStatus("break")}>Break</button>
-            <button onClick={()=>setMyStatus("open")}>Open</button>
+            <label>Label1</label>
+            <input value={val1} onChange={e=>setVal1(e.target.value)}/>
+            <br/>
+            <label>Label2</label>
+            <input value={val2} onChange={e=>setVal2(e.target.value)}/>
         </div>
     );
 }
